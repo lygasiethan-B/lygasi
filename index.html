@@ -368,11 +368,55 @@
             font-size: 1.8rem;
         }
         
-        /* Footer */
-        footer {
-            background-color: var(--charcoal);
+        /* Funding Options Styles - Simple Version */
+        .funding-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 2rem 0;
+        }
+
+        .funding-card {
+            flex: 0 0 300px; /* Fixed width of 300px */
+        }
+
+        .funding-card {
+            background: #FDF6E3;
+            border: 2px solid #F0B429;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            width: 300px;
+        }
+
+        .funding-card h4 {
+            color: #E25822;
+            margin-bottom: 1rem;
+        }
+
+        .funding-card ul {
+            text-align: left;
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .funding-card li {
+            margin-bottom: 0.5rem;
+            color: #333333;
+        }
+
+        .form-notice {
+            background: #5F8D37;
             color: white;
-            padding: 4rem 0 2rem;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .form-notice p {
+            margin: 0;
         }
         
         .footer-content {
@@ -516,7 +560,7 @@
                     <div class="doc-content">
                         <h3>Uganda's Gang of Four</h3>
                         <p>Explore the untold story of four influential figures who shaped modern Uganda's political landscape.</p>
-                        <div class="doc-price">3,500 UGX to watch</div>
+                        <div class="doc-price" style="color: var(--sunset-orange);"> Complimentary Access </div>
                         <a href="https://selar.com/9c729le075" class="cta-button" style="display: block; text-align: center;" target="_blank">Join Our Mission to Preserve East Africa's History</a>
                     </div>
                 </div>
@@ -539,47 +583,88 @@
 
     <!-- Support Form Section -->
     <section class="support-form" id="support">
-        <div class="container">
-            <h2 class="section-title">Get Involved</h2>
-            <div class="form-container">
-                <h3>Help Us Preserve East Africa's History</h3>
-                <p>Nominate historical figures, suggest documentary topics, or inquire about collaboration opportunities.</p>
+    <div class="container">
+        <h2 class="section-title">Fund Historical Documentation</h2>
+        <div class="form-container">
+            <h3>Become a Documentary Patron</h3>
+            <p>Your contribution directly funds the documentation of East Africa's untold stories. Choose your sponsorship level and help us preserve history for future generations.</p>
+            
+            <div class="funding-options">
+                <div class="funding-card">
+                    <h4>🌱 Seed Sponsor - $1,000</h4>
+                    <p>Fund one historical figure documentation</p>
+                    <ul>
+                        <li>5-10 minute documentary</li>
+                        <li>1 month production timeline</li>
+                        <li>Credit as Seed Sponsor</li>
+                    </ul>
+                </div>
                 
-                <form action="https://formsubmit.co/lygasiethan@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="New Support Message from Lygasi Website">
-                    <input type="hidden" name="_template" value="table">
-                    
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="interest">How would you like to be involved?</label>
-                        <select id="interest" name="interest" required>
-                            <option value="" disabled selected>Select an option</option>
-                            <option value="nomination">Nominate a historical figure to document</option>
-                            <option value="collaboration">Collaborate on a documentary project</option>
-                            <option value="suggestion">Suggest a documentary topic</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Tell us more</label>
-                        <textarea id="message" name="message" placeholder="Please provide details about the historical figure, your collaboration interest, or any other information..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-button">Submit</button>
-                </form>
+                <div class="funding-card">
+                    <h4>🎬 Story Champion - $2,500</h4>
+                    <p>Extended documentary production</p>
+                    <ul>
+                        <li>Under 25 minute documentary</li>
+                        <li>3 month production period</li>
+                        <li>Executive Producer credit</li>
+                    </ul>
+                </div>
+                
+                <div class="funding-card">
+                    <h4>🎥 Legacy Partner - $5,000</h4>
+                    <p>Comprehensive documentary series</p>
+                    <ul>
+                        <li>Part 1 & 2 feature documentary (25min each)</li>
+                        <li>6 month production timeline</li>
+                        <li>Lead Sponsor recognition</li>
+                    </ul>
+                </div>
             </div>
+
+            <form action="https://formsubmit.co/lygasiethan@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Documentary Sponsorship Inquiry">
+                <input type="hidden" name="_template" value="table">
+                
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sponsorship">Choose Your Sponsorship Level</label>
+                    <select id="sponsorship" name="sponsorship" required>
+                        <option value="" disabled selected>Select sponsorship level</option>
+                        <option value="seed_1000">Seed Sponsor - $1,000 (5-10 min documentary)</option>
+                        <option value="champion_2500">Story Champion - $2,500 (25 min documentary)</option>
+                        <option value="legacy_5000">Legacy Partner - $5,000 (Two-part feature)</option>
+                        <option value="custom">Custom Amount - Discuss options</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="historical_figure">Historical Figure You'd Like to Nominate (Optional)</label>
+                    <input type="text" id="historical_figure" name="historical_figure" placeholder="e.g., Chief A, Educator B, etc.">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Tell Us More About Your Interest</label>
+                    <textarea id="message" name="message" placeholder="Why are you interested in sponsoring this documentary? Any specific historical periods or regions you're passionate about?" required></textarea>
+                </div>
+                
+                <div class="form-notice">
+                    <p><strong>Next Steps:</strong> After you submit, we'll send you a Payoneer payment request for your chosen sponsorship level and schedule a call to discuss the documentary details.</p>
+                </div>
+                
+                <button type="submit" class="submit-button">Become a Documentary Patron</button>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Goals Section -->
     <section>
