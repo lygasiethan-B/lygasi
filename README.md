@@ -10,4 +10,4 @@ This platform hosts documentaries about East Africa's history and enables financ
 - Mobile Money payment integration
 - Digital preservation of cultural heritage
 
-Visit the live site: https://lygasiethan-B.github.io/lygasi/
+Visit the live site: https://lygasi.binomugisha.org/
