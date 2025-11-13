@@ -24,14 +24,39 @@
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="T73RLaSZTV0VwNj_5fAP9Xl3_4SqhH3e3B4og4h-oVQ" />
 
+    <!-- Additional SEO Meta Tags -->
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
     <!-- Open Graph & Twitter -->
     <meta property="og:title" content="Lygasi - Preserving East Africa's History Through Digital Storytelling">
     <meta property="og:description" content="Support documentary filmmaking that preserves East Africa's untold stories and cultural heritage for future generations.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lygasi.binomugisha.org/">
-    <meta property="og:image" content="https://via.placeholder.com/1200x630/E25822/FFFFFF?text=LYGASI">
+    <meta property="og:image" content="https://lygasi.binomugisha.org/images/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lygasi - Preserving East Africa's History Through Digital Storytelling">
+    <meta name="twitter:description" content="Support documentary filmmaking that preserves East Africa's untold stories and cultural heritage for future generations.">
+    <meta name="twitter:image" content="https://lygasi.binomugisha.org/images/og-image.jpg">
     
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Lygasi",
+      "url": "https://lygasi.binomugisha.org/",
+      "description": "Preserving East Africa's History Through Digital Storytelling",
+      "areaServed": "East Africa",
+      "founder": {
+        "@type": "Person",
+        "name": "Nathan Binomugisha"
+      },
+      "sameAs": []
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -1078,9 +1103,22 @@
             });
             event.target.classList.add('active');
             
+            // Update URL without reload for better SEO
+            window.history.pushState({}, '', `/#${pageId}`);
+            
             // Scroll to top
             window.scrollTo(0, 0);
         }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function() {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById(hash)) {
+                showPage(hash);
+            } else {
+                showPage('mission');
+            }
+        });
 
         // Header scroll effect
         window.addEventListener('scroll', function() {
@@ -1092,9 +1130,16 @@
             }
         });
 
-        // Set mission as default active page
+        // Set mission as default active page and handle initial load
         document.addEventListener('DOMContentLoaded', function() {
-            showPage('mission');
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById(hash)) {
+                showPage(hash);
+            } else {
+                showPage('mission');
+            // Set initial URL
+                window.history.replaceState({}, '', '/#mission');
+            }
         });
     </script>
 </body>
